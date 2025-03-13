@@ -1,0 +1,255 @@
+/* =====================
+   Light/Dark Theme
+   ===================== */
+   :root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --header-bg: #f9f9f9;
+    --border-color: #ccc;
+    --button-bg: #333;
+    --button-text: #fff;
+  }
+  
+  body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #eeeeee;
+    --header-bg: #2a2a2a;
+    --border-color: #444;
+    --button-bg: #555;
+    --button-text: #fff;
+  }
+  
+  /* =====================
+     Global Styles
+     ===================== */
+  body {
+    font-family: "Courier New", Courier, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  /* Links, Buttons */
+  a, button {
+    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
+  
+  /* =====================
+     Header
+     ===================== */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 20px;
+  }
+  
+  .header-left h1 {
+    margin-bottom: 5px;
+  }
+  
+  .search-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .search-form input[type="text"] {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  .search-form button {
+    margin: 0;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* The label for the checkbox-based toggle */
+  .theme-toggle-label {
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  /* Hide the checkbox visually */
+  .theme-toggle-checkbox {
+    display: none;
+  }
+  
+  /* =====================
+     Main Content
+     ===================== */
+  .main-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  /* Flash messages */
+  .flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .flashes li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  .success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  /* =====================
+     Results Section
+     ===================== */
+  .results-section {
+    margin-bottom: 40px;
+  }
+  
+  .results-section h2 {
+    margin-bottom: 20px;
+  }
+  
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .paper-item {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+  }
+  
+  .paper-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .paper-abstract {
+    margin-bottom: 10px;
+  }
+  
+  .paper-add button {
+    margin-top: 10px;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .pagination-link {
+    text-decoration: underline;
+    color: var(--text-color);
+  }
+  
+  .pagination-info {
+    font-size: 0.9em;
+  }
+  
+  /* =====================
+     Footer
+     ===================== */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  
+  .footer-left, 
+  .footer-right {
+    flex: 1;
+  }
+  
+  .footer-left {
+    margin-right: 20px;
+  }
+  
+  .footer-left form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .reading-lists {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+  
+  .reading-lists li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .bullet {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  /* Color-coded bullets */
+  .bullet-green {
+    background-color: #3cb371;
+  }
+  .bullet-blue {
+    background-color: #007acc;
+  }
+  .bullet-red {
+    background-color: #dc3545;
+  }
+  

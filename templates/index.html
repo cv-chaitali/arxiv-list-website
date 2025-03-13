@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="results-section">
+  <h2>Results</h2>
+  
+  {% if papers %}
+    <!-- List of papers -->
+    <div class="papers-list">
+      {% for paper in papers %}
+        <div class="paper-item">
+          <div class="paper-title">{{ paper.title }}</div>
+          <div class="paper-abstract">
+            {{ paper.summary }}
+          </div>
+          <div class="paper-add">
+            <!-- Example: link to add paper to a reading list -->
+            <form 
+              method="POST" 
+              action="{{ url_for('add_paper', share_id='temp') }}"
+              class="add-form"
+            >
+              <input type="hidden" name="arxiv_id" value="{{ paper.id }}">
+              <input type="hidden" name="title" value="{{ paper.title }}">
+              <input type="hidden" name="summary" value="{{ paper.summary }}">
+              <button type="submit">Add to Reading List</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      {% if page > 1 %}
+        <a href="{{ url_for('index', query=query, page=page-1) }}" class="pagination-link">Previous</a>
+      {% endif %}
+      <span class="pagination-info">Page {{ page }}</span>
+      <a href="{{ url_for('index', query=query, page=page+1) }}" class="pagination-link">Next</a>
+    </div>
+  {% else %}
+    <p>No papers found. Try a different search!</p>
+  {% endif %}
+</section>
+{% endblock %}

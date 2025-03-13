@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Reading List: {{ reading_list.name }}</h1>
+<p>Share this list: <a href="{{ url_for('view_list', share_id=reading_list.share_id, _external=True) }}">
+    {{ url_for('view_list', share_id=reading_list.share_id, _external=True) }}</a>
+</p>
+
+<h2>Papers</h2>
+<ul>
+  {% for paper in papers %}
+    <li>
+      <strong>{{ paper.title }}</strong><br>
+      {{ paper.summary|truncate(200) }}<br>
+      <a href="https://arxiv.org/abs/{{ paper.arxiv_id }}" target="_blank">View on arXiv</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<hr>
+<h2>Add a Paper Manually</h2>
+<form method="POST" action="{{ url_for('add_paper', share_id=reading_list.share_id) }}">
+  <input type="text" name="arxiv_id" placeholder="ArXiv ID" required>
+  <input type="text" name="title" placeholder="Paper Title" required>
+  <textarea name="summary" placeholder="Summary" required></textarea>
+  <button type="submit">Add Paper</button>
+</form>
+{% endblock %}
